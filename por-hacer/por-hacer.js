@@ -70,9 +70,21 @@ const borrarTarea = (descripcion) => {
 
 }
 
+const listarTareasCompletadas = () => {
+    cargarDB();
+    let nuevoListado = listadoPorHacer.filter(tarea => tarea.completado !== false);
+
+    if (nuevoListado.length >= 0) {
+        return nuevoListado;
+    } else {
+        return "No hay tareas completadas";
+    }
+}
+
 module.exports = {
     crear,
     getListado,
     actualizarTarea,
-    borrarTarea
+    borrarTarea,
+    listarTareasCompletadas
 }

@@ -15,13 +15,12 @@ switch (comando) {
 
     case 'listar':
         let listado = porHacer.getListado();
+        console.log('=========Tareas========='.green);
         for (const tarea of listado) {
-            console.log('=========Por Hacer========='.green);
             console.log(tarea.descripcion);
             console.log('Estado: ', tarea.completado);
             console.log('==========================='.green);
         }
-
         break;
 
     case 'actualizar':
@@ -31,7 +30,18 @@ switch (comando) {
     case 'borrar':
         let borrado = porHacer.borrarTarea(argv.descripcion);
         break;
+    case 'listarC':
+        let tareasCompletadas = porHacer.listarTareasCompletadas();
+        console.log('=========Completadas========='.green);
+        for (const tarea of tareasCompletadas) {
+            console.log(tarea.descripcion);
+            console.log('Estado: ', tarea.completado);
+            console.log('==========================='.green);
+        }
+        break;
     default:
         console.log('Comando vacio'.cyan);
         break;
 }
+
+//actualizar repositorio Git de carpeta 3 y 4
